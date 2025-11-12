@@ -264,8 +264,7 @@ bool handleEvents(void)
 
 	if (!ImGui::GetIO().WantCaptureKeyboard)
 	{
-		vec3 camera_forward = vec3(0, 0, 1);
-		camera_forward = vec3(R * vec4(camera_forward, 0));
+
 		vec3 car_forward = vec3(0, 0, 1);
 		car_forward = vec3(R * vec4(car_forward, 0));
 		if (state[SDL_SCANCODE_UP])
