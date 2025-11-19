@@ -8,3 +8,14 @@ Test it with and without the glossy reflections from the environment.
 2.2 What happens when you reduce the metalness of one of the metal materials? 
 How do intermediate values look like, and when could having an intermediate value make sense?
 	idk
+
+Lab 5
+	Exercise 1: Mosaic approaches
+		The one implemented using modulo effectively only considers one of every 22 pixels which resamples the image in a smaller resolution.
+		Using floor instead .....
+
+	Exercise 2: Motion blur
+		Maybe by using the blur effect but only when a change in rotation is detected?
+
+	Exercise 3: More complex effects
+		The position of other models in the world space so that other models reflection can also be viewed.
