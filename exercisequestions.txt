@@ -13,7 +13,8 @@ Lab 5
 	Exercise 1: Mosaic approaches
 		The goal is to find a common representative pixel p for each pixel in block of size 22 in this case.
 		The block will take on the color of the representative pixel.
-		Modulo does this by calculating the offset from the representative pixel with modulo and subtracting the given pixel with the offset to get the representative pixel for that block.
+		Modulo does this by calculating the offset from the representative pixel with modulo and subtracting
+		the given pixel with the offset to get the representative pixel for that block.
 		Using floor instead:
 			float size = 22.0;
 			return floor(inCoord / size) * size;
@@ -29,3 +30,14 @@ Lab 5
 	Exercise 3: More complex effects
 		The position of other models in the world space so that other models reflection can also be viewed.
 		I.e the distance between a mirror and an object so that we know how to render the object in the mirror.
+		
+Lab 6:
+	Exercise 1: Other types of lights
+	Like the sun:
+		Can the light-model be considered as a quad instead that covers the entire "top" of the world space?
+		Decide a direction of the light that is orthogonal to this quad that acts as the light source.
+	Shadows all around:
+		Render the point lights perspective as a cubemap. Each face of the cube now represents the depth in
+		one of the six directions.
+		
+		
