@@ -1,21 +1,31 @@
 1. Why do we want to disable depth testing when we render the fullscreen quad?
 	Since the quad is placed directly infront of the camera, other models would not be visible through it.
 
-2.1 What is the effect of increasing the fresnel value close to 1 on dielectric materials? 
+2.1 What is the effect of increasing the fresnel value close to 1 on dielectric materials?
 Test it with and without the glossy reflections from the environment.
 	it becomes more reflective but since it is not shiny it the diffused light becomes more prominent... ?
 
-2.2 What happens when you reduce the metalness of one of the metal materials? 
+2.2 What happens when you reduce the metalness of one of the metal materials?
 How do intermediate values look like, and when could having an intermediate value make sense?
 	idk
 
 Lab 5
 	Exercise 1: Mosaic approaches
-		The one implemented using modulo effectively only considers one of every 22 pixels which resamples the image in a smaller resolution.
-		Using floor instead .....
+		The goal is to find a common representative pixel p for each pixel in block of size 22 in this case.
+		The block will take on the color of the representative pixel.
+		Modulo does this by calculating the offset from the representative pixel with modulo and subtracting the given pixel with the offset to get the representative pixel for that block.
+		Using floor instead:
+			float size = 22.0;
+			return floor(inCoord / size) * size;
+		inCoord / size divides the screen into blocks of 22 pixels.
+		Floor makes sure that the pixel is not a float.
+		Then multiplying brings us back to the original pixel position but with the color of the block instead.
 
 	Exercise 2: Motion blur
-		Maybe by using the blur effect but only when a change in rotation is detected?
+		Generate a vector that represents the change in position of a pixel.
+		Use the blur effect on several samples from this line to blend them?
+		Do this for every pixel.
 
 	Exercise 3: More complex effects
 		The position of other models in the world space so that other models reflection can also be viewed.
+		I.e the distance between a mirror and an object so that we know how to render the object in the mirror.
